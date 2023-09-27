@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 1373324409}
   m_Layer: 0
   m_Name: Snake
-  m_TagString: Head
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -704,10 +704,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _segments: []
   segmentPrefab: {fileID: 8836103011137671282, guid: 49adf86997ab16d468a20ea872826f63, type: 3}
-  direction: {x: 1, y: 0}
   speed: 10
+  maxSpeed: 100
   speedScalePersent: 1.1
   startSize: 4
+  direction: {x: 1, y: 0}
 --- !u!1 &1494587314
 GameObject:
   m_ObjectHideFlags: 0

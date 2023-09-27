@@ -9,17 +9,20 @@ public class SnakeHead : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    [SerializeField] private Vector2 direction = Vector2.right;
-    [SerializeField] private float speed = 10f; //max speed = 100
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float maxSpeed = 100;
     [SerializeField] private float speedScalePersent = 1.10f; 
+
     [SerializeField] private int startSize = 3;
+
+    [SerializeField] private Vector2 direction = Vector2.right;
     private float moveSpeedCounter;    
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        _segments.Add(transform);
+        _segments.Add(transform); //add head to _segments
         for (int i = 0; i < startSize; i++)
         {
             Grow();
@@ -29,11 +32,11 @@ public class SnakeHead : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 directionInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (directionInput == direction * -1)
+        if (directionInput == direction * -1)// selfEating protect
         {
             return;
         }
-        if (directionInput.x == 0 || directionInput.y == 0)
+        else if (directionInput.x == 0 || directionInput.y == 0)
         {
             if (directionInput.x != 0 || directionInput.y != 0)
             {
@@ -42,7 +45,7 @@ public class SnakeHead : MonoBehaviour
         }
 
         moveSpeedCounter += speed;
-        if (moveSpeedCounter >= 100)
+        if (moveSpeedCounter >= maxSpeed)
         {
             for (int i = _segments.Count - 1; i > 0; i--)
             {
@@ -65,7 +68,7 @@ public class SnakeHead : MonoBehaviour
         }
 
         else if (collision.CompareTag("Obstacle") && Time.timeSinceLevelLoad > 1)
-        {
+        {                                               // selfEating protect
             Die();
         }
     }

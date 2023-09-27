@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class FoodSpawner : MonoBehaviour
@@ -6,18 +5,16 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private float spawnDelay;
     [SerializeField] private Vector2 spawnArea;
 
-    [SerializeField] private GameObject apple;
+    [SerializeField] private GameObject applePrefab;
 
     [SerializeField] private GameObject currentFood;
 
     private void Update()
     {
-        if (currentFood != null)
+        if (currentFood == null)
         {
-            return;
+            SpawnFood(DefinitionPositin());
         }
-
-        SpawnFood(DefinitionPositin());
     }
 
     private Vector3 DefinitionPositin()
@@ -32,7 +29,7 @@ public class FoodSpawner : MonoBehaviour
 
     private void SpawnFood(Vector3 pos)
     {
-        GameObject food = Instantiate(apple, pos, Quaternion.identity);
+        GameObject food = Instantiate(applePrefab, pos, Quaternion.identity);
 
         currentFood = food;
     }
