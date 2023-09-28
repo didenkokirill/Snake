@@ -34,16 +34,20 @@ public class SnakeHead : MonoBehaviour
         Vector2 directionInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (directionInput == direction * -1)// selfEating protect
         {
-            return;
+            Move();
         }
-        else if (directionInput.x == 0 || directionInput.y == 0)
+        else if (directionInput.x == 0 || directionInput.y == 0) // code stile normal?
         {
             if (directionInput.x != 0 || directionInput.y != 0)
             {
                 direction = directionInput;
+                Move();
             }
         }
+    }
 
+    private void Move()
+    {
         moveSpeedCounter += speed;
         if (moveSpeedCounter >= maxSpeed)
         {
@@ -56,11 +60,6 @@ public class SnakeHead : MonoBehaviour
             rb.position += direction;
             moveSpeedCounter = 0;
         }
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

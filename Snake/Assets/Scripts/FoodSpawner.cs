@@ -15,16 +15,19 @@ public class FoodSpawner : MonoBehaviour
         {
             SpawnFood(DefinitionPositin());
         }
+
+        spawnArea.x = ViewportHandler.Instance.Width / 2 - 1;
+        spawnArea.y = ViewportHandler.Instance.Height / 2 - 1;
     }
 
     private Vector3 DefinitionPositin()
     {
-        Vector3 position = new Vector3(
+        Vector3 position = new(
             Mathf.Round(Random.Range(-spawnArea.x, spawnArea.x)),
             Mathf.Round(Random.Range(-spawnArea.y, spawnArea.y)),
             0f);
 
-        return (position);
+        return position;
     }
 
     private void SpawnFood(Vector3 pos)
