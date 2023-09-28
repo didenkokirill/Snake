@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,6 +216,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7467a317c4908c14881b28117a7cce9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireColor: {r: 1, g: 1, b: 1, a: 1}
+  UnitsSize: 30
+  constraint: 1
+  camera: {fileID: 519420031}
 --- !u!1 &860445243
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,8 +244,9 @@ GameObject:
   - component: {fileID: 860445247}
   - component: {fileID: 860445246}
   - component: {fileID: 860445245}
+  - component: {fileID: 860445248}
   m_Layer: 0
-  m_Name: Wall (2)
+  m_Name: 'RightWall '
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,9 +260,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860445243}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 32, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26.307693, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1741748020}
@@ -373,6 +391,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &860445248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860445243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934148df1746ded45933005ac447b66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorType: 5
+  anchorOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &958174925
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,8 +417,9 @@ GameObject:
   - component: {fileID: 958174929}
   - component: {fileID: 958174928}
   - component: {fileID: 958174927}
+  - component: {fileID: 958174930}
   m_Layer: 0
-  m_Name: Wall (1)
+  m_Name: 'BotWall '
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,8 +434,8 @@ Transform:
   m_GameObject: {fileID: 958174925}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15.5, z: 0}
-  m_LocalScale: {x: 55, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalScale: {x: 100, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1741748020}
@@ -531,6 +564,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &958174930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958174925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934148df1746ded45933005ac447b66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorType: 1
+  anchorOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1373324402
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _segments: []
   segmentPrefab: {fileID: 8836103011137671282, guid: 49adf86997ab16d468a20ea872826f63, type: 3}
-  speed: 10
+  speed: 0
   maxSpeed: 100
   speedScalePersent: 1.1
   startSize: 4
@@ -721,8 +768,9 @@ GameObject:
   - component: {fileID: 1494587318}
   - component: {fileID: 1494587317}
   - component: {fileID: 1494587316}
+  - component: {fileID: 1494587319}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: TopWall
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -737,8 +785,8 @@ Transform:
   m_GameObject: {fileID: 1494587314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15.5, z: 0}
-  m_LocalScale: {x: 55, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
+  m_LocalScale: {x: 100, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1741748020}
@@ -867,6 +915,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1494587319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494587314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934148df1746ded45933005ac447b66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorType: 7
+  anchorOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1673674683 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4223890036287374396, guid: 526a663f33487674480b07a3e86c09ba, type: 3}
@@ -903,8 +965,8 @@ Transform:
   m_Children:
   - {fileID: 1494587315}
   - {fileID: 958174926}
-  - {fileID: 860445244}
   - {fileID: 2130843813}
+  - {fileID: 860445244}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2098028608
@@ -953,7 +1015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnDelay: 3
   spawnArea: {x: 26.2, y: 14.5}
-  apple: {fileID: 4223890036287374396, guid: 526a663f33487674480b07a3e86c09ba, type: 3}
+  applePrefab: {fileID: 0}
   currentFood: {fileID: 1673674683}
 --- !u!1 &2130843812
 GameObject:
@@ -967,8 +1029,9 @@ GameObject:
   - component: {fileID: 2130843816}
   - component: {fileID: 2130843815}
   - component: {fileID: 2130843814}
+  - component: {fileID: 2130843817}
   m_Layer: 0
-  m_Name: Wall (3)
+  m_Name: LeftWall
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -983,8 +1046,8 @@ Transform:
   m_GameObject: {fileID: 2130843812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 32, z: 1}
+  m_LocalPosition: {x: -26.307693, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1741748020}
@@ -1113,6 +1176,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2130843817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130843812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934148df1746ded45933005ac447b66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorType: 3
+  anchorOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &6637908576808175814
 PrefabInstance:
   m_ObjectHideFlags: 0

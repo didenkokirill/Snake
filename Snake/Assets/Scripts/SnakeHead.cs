@@ -7,8 +7,6 @@ public class SnakeHead : MonoBehaviour
     [SerializeField] private List<Transform> _segments = new List<Transform>();
     [SerializeField] private Transform segmentPrefab;
 
-    private Rigidbody2D rb;
-
     [SerializeField] private float speed = 10f;
     [SerializeField] private float maxSpeed = 100;
     [SerializeField] private float speedScalePersent = 1.10f; 
@@ -16,7 +14,9 @@ public class SnakeHead : MonoBehaviour
     [SerializeField] private int startSize = 3;
 
     [SerializeField] private Vector2 direction = Vector2.right;
-    private float moveSpeedCounter;    
+    private float moveSpeedCounter;
+
+    private Rigidbody2D rb;
 
     private void Awake()
     {
@@ -56,6 +56,11 @@ public class SnakeHead : MonoBehaviour
             rb.position += direction;
             moveSpeedCounter = 0;
         }
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
