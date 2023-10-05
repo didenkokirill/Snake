@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 public class SnakeHead : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class SnakeHead : MonoBehaviour
 
     [SerializeField] private float speed = 10f;
     [SerializeField] private float maxSpeed = 100;
-    [SerializeField] private float speedScalePersent = 1.10f; 
+    [SerializeField] private float speedScalePersent = 1.10f;
 
     [SerializeField] private int startSize = 3;
+    [SerializeField] private int growSize = 2;
 
     [SerializeField] private Vector2 direction = Vector2.right;
     private float moveSpeedCounter;
+
+    private bool startMove;
 
     private Rigidbody2D rb;
 
@@ -26,25 +30,28 @@ public class SnakeHead : MonoBehaviour
         for (int i = 0; i < startSize; i++)
         {
             Grow();
-        }  
+        }
     }
 
     private void FixedUpdate()
     {
         Vector2 directionInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (directionInput == direction * -1)// selfEating protect
+
+        if ((directionInput.x == 0 || directionInput.y == 0) &&
+           (directionInput.x != 0 || directionInput.y != 0) &&
+           (directionInput != direction * -1))
+        {
+            direction = directionInput;   
+        }
+
+        if (Input.anyKeyDown || startMove)
         {
             Move();
-        }
-        else if (directionInput.x == 0 || directionInput.y == 0) // code stile normal?
-        {
-            if (directionInput.x != 0 || directionInput.y != 0)
-            {
-                direction = directionInput;
-                Move();
-            }
-        }
+
+            startMove = true;
+        }       
     }
+
 
     private void Move()
     {
@@ -66,8 +73,15 @@ public class SnakeHead : MonoBehaviour
     {
         if (collision.CompareTag("Food"))
         {
-            Grow();
-            speed *= speedScalePersent;
+            ScoreSystem.Instance.AddScore();
+            ScoreSystem.Instance.SpawnPopUp(transform.position);
+
+            for (int i = 0; i < growSize; i++)
+            {
+                Grow();
+            }
+        
+            speed = Mathf.Log(speed, speedScalePersent);
             Destroy(collision.gameObject);
         }
 
@@ -87,6 +101,10 @@ public class SnakeHead : MonoBehaviour
 
     private void Die()
     {
+        YandexGame.NewLeaderboardScores("BestScoreLeaderBoard", ScoreSystem.Instance.GetBestScore());
+
+        YandexGame.SaveProgress();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
