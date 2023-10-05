@@ -19,7 +19,6 @@ public class ScoreSystem : MonoBehaviour
     public void SpawnPopUp(Vector2 position)
     {
         GameObject newPopup = Instantiate(popupPrefab, position, Quaternion.identity);
-
         newPopup.GetComponent<Popup>().Setup(foodCost);
     }
 
@@ -43,7 +42,6 @@ public class ScoreSystem : MonoBehaviour
     public void SetBestScore(int set)
     {
         bestScore = set;
-
         YandexGame.savesData.bestScore = bestScore;
     }
 }

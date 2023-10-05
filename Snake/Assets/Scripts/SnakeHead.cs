@@ -102,9 +102,7 @@ public class SnakeHead : MonoBehaviour
     private void Die()
     {
         YandexGame.NewLeaderboardScores("BestScoreLeaderBoard", ScoreSystem.Instance.GetBestScore());
-
         YandexGame.SaveProgress();
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
