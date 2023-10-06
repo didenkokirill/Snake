@@ -4,6 +4,7 @@ public class FoodSpawner : MonoBehaviour
 {
     [SerializeField] private float spawnDelay;
     [SerializeField] private Vector2 spawnArea;
+    [SerializeField] private Vector2 spawnAreaOffset;
 
     [SerializeField] private GameObject applePrefab;
 
@@ -16,8 +17,8 @@ public class FoodSpawner : MonoBehaviour
             SpawnFood(DefinitionPositin());
         }
 
-        spawnArea.x = ViewportHandler.Instance.Width / 2 - 1;
-        spawnArea.y = ViewportHandler.Instance.Height / 2 - 1;
+        spawnArea.x = ViewportHandler.Instance.Width / 2 - spawnAreaOffset.x;
+        spawnArea.y = ViewportHandler.Instance.Height / 2 - spawnAreaOffset.y;
     }
 
     private Vector3 DefinitionPositin()

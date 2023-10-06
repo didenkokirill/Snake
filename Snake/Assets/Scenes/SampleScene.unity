@@ -425,7 +425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4281049470373009323, guid: 952704a73ed9d5c4685fb17ce230c1a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.392025
+      value: -31.392025
       objectReference: {fileID: 0}
     - target: {fileID: 4521343614973451671, guid: 952704a73ed9d5c4685fb17ce230c1a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -469,7 +469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6294495775684802626, guid: 952704a73ed9d5c4685fb17ce230c1a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.392025
+      value: 31.392025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980800705223887118, guid: 952704a73ed9d5c4685fb17ce230c1a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -553,6 +557,14 @@ PrefabInstance:
       propertyPath: currentFood
       value: 
       objectReference: {fileID: 1673674683}
+    - target: {fileID: 2145228497499630564, guid: bed7343efafd24740bb07a454b188ab6, type: 3}
+      propertyPath: spawnAreaOffset.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145228497499630564, guid: bed7343efafd24740bb07a454b188ab6, type: 3}
+      propertyPath: spawnAreaOffset.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6523010911587544089, guid: bed7343efafd24740bb07a454b188ab6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1387656052457593880}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.271395, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 50, z: 1}
+  m_LocalPosition: {x: 31.392025, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4521343614973451671}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorType: 5
-  anchorOffset: {x: 0, y: 0, z: 0}
+  anchorOffset: {x: -1, y: 0, z: 0}
 --- !u!1 &2592154288377332197
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,8 +202,8 @@ Transform:
   m_GameObject: {fileID: 2592154288377332197}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.271395, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 50, z: 1}
+  m_LocalPosition: {x: -31.392025, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4521343614973451671}
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorType: 3
-  anchorOffset: {x: 0, y: 0, z: 0}
+  anchorOffset: {x: 1, y: 0, z: 0}
 --- !u!1 &3214525696063063975
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,8 +410,8 @@ Transform:
   m_GameObject: {fileID: 4611426179156955975}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -14, z: 0}
+  m_LocalScale: {x: 100, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4521343614973451671}
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorType: 1
-  anchorOffset: {x: 0, y: 0, z: 0}
+  anchorOffset: {x: 0, y: 1, z: 0}
 --- !u!1 &4898556044127192163
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,8 +583,8 @@ Transform:
   m_GameObject: {fileID: 4898556044127192163}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 14, z: 0}
+  m_LocalScale: {x: 100, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4521343614973451671}
@@ -726,4 +726,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorType: 7
-  anchorOffset: {x: 0, y: 0, z: 0}
+  anchorOffset: {x: 0, y: -1, z: 0}
