@@ -19,7 +19,7 @@ public class ScoreSystem : MonoBehaviour
     public void SpawnPopUp(Vector2 position)
     {
         GameObject newPopup = Instantiate(popupPrefab, position, Quaternion.identity);
-        newPopup.GetComponent<Popup>().Setup(foodCost);
+        newPopup.GetComponent<Popup>().Setup(foodCost); //num on popup
     }
 
     public int GetBestScore()

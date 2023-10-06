@@ -5,20 +5,20 @@ using YG;
 
 public class SnakeHead : MonoBehaviour
 {
-    [SerializeField] private List<Transform> _segments = new List<Transform>();
+    [SerializeField] private List<Transform> _segments = new List<Transform>(); //all Snake segments
     [SerializeField] private Transform segmentPrefab;
 
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speed = 10f; 
     [SerializeField] private float maxSpeed = 100;
-    [SerializeField] private float speedScalePersent = 1.10f;
+    [SerializeField] private float speedScalePersent = 1.10f; //speed = log(speed, speedScalePersent) 
 
     [SerializeField] private int startSize = 3;
-    [SerializeField] private int growSize = 2;
+    [SerializeField] private int growSize = 2; //Segments count added in Grow()
 
     [SerializeField] private Vector2 direction = Vector2.right;
     private float moveSpeedCounter;
 
-    private bool startMove;
+    private bool startMove; //if == false, wait Input.anyKeyDown
 
     private Rigidbody2D rb;
 
@@ -35,11 +35,11 @@ public class SnakeHead : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 directionInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 directionInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); //wasd and arrows
 
-        if ((directionInput.x == 0 || directionInput.y == 0) &&
-           (directionInput.x != 0 || directionInput.y != 0) &&
-           (directionInput != direction * -1))
+        if ((directionInput.x == 0 || directionInput.y == 0) && //you cant move on 
+           (directionInput.x != 0 || directionInput.y != 0) &&  //diagonal
+           (directionInput != direction * -1)) //cant move into yor self
         {
             direction = directionInput;   
         }
@@ -53,18 +53,18 @@ public class SnakeHead : MonoBehaviour
     }
 
 
-    private void Move()
+    private void Move() 
     {
         moveSpeedCounter += speed;
-        if (moveSpeedCounter >= maxSpeed)
+        if (moveSpeedCounter >= maxSpeed) //mb rerite this
         {
             for (int i = _segments.Count - 1; i > 0; i--)
             {
-                Vector3 position = _segments[i - 1].position;
-                _segments[i].position = _segments[i - 1].position;
+                Vector3 position = _segments[i - 1].position; //last segment move on next one
+                _segments[i].position = _segments[i - 1].position; //
             }
 
-            rb.position += direction;
+            rb.position += direction; //head move to direction
             moveSpeedCounter = 0;
         }
     }
@@ -82,11 +82,12 @@ public class SnakeHead : MonoBehaviour
             }
         
             speed = Mathf.Log(speed, speedScalePersent);
+
             Destroy(collision.gameObject);
         }
 
         else if (collision.CompareTag("Obstacle") && Time.timeSinceLevelLoad > 1)
-        {                                               // selfEating protect
+        {                                               // selfEating protect (no detect this collisin first sec)
             Die();
         }
     }

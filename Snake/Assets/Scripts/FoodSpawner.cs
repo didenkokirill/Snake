@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class FoodSpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnDelay;
     [SerializeField] private Vector2 spawnArea;
-    [SerializeField] private Vector2 spawnAreaOffset;
+    [SerializeField] private Vector2 spawnAreaOffset; //offset = otstup
 
     [SerializeField] private GameObject applePrefab;
 
@@ -12,16 +11,16 @@ public class FoodSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (currentFood == null)
+        if (currentFood == null) //spawn new food if previos ate
         {
             SpawnFood(DefinitionPositin());
         }
 
-        spawnArea.x = ViewportHandler.Instance.Width / 2 - spawnAreaOffset.x;
+        spawnArea.x = ViewportHandler.Instance.Width / 2 - spawnAreaOffset.x; 
         spawnArea.y = ViewportHandler.Instance.Height / 2 - spawnAreaOffset.y;
     }
 
-    private Vector3 DefinitionPositin()
+    private Vector3 DefinitionPositin() //random position in spawn area
     {
         Vector3 position = new(
             Mathf.Round(Random.Range(-spawnArea.x, spawnArea.x)),
